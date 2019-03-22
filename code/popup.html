@@ -1,0 +1,177 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>小猪学术助手</title>
+        <link rel="stylesheet" href="styles/popup.css" type="text/css">
+        <script src="libs/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script src="libs/parseUri.js" type="text/javascript"></script>
+        <script src="scripts/bootstrap-switch.js" type="text/javascript"></script>
+        <script src="scripts/popup.js" type="text/javascript"></script>
+    </head>
+    <body data-i18n-values=".style.direction:global_direction;.style.textAlign:global_textAlign">
+        <div id="menu">
+            <div id="directConnection" name="[Direct Connection]" class="item proxy" title="Disable Proxy"
+                 data-i18n-values="title:proxy_directConnection_help">
+                <div class="icon"></div>
+                <span data-i18n-content="proxy_directConnection">Direct Connection</span>
+            </div>
+            <div id="separatorProxies" class="separator"></div>
+            <div id="proxies">
+                <div class="templateItem" title="">
+                    <div class="icon"></div>
+                    <span>Proxy</span>
+                </div>
+            </div>
+            <div id="separatorRules" class="separator"></div>
+            <div id="automaticMode" class="item proxy"
+                 title="Automatically choose the proper proxy profile &#13;for each URL, based on Switch Rules."
+                 data-i18n-values="title:popup_autoSwitchMode_help">
+                <div class="icon"></div>
+                <span data-i18n-content="popup_autoSwitchMode">Auto Switch Mode</span>
+            </div>
+            <div id="systemProxy" name="[System Proxy]" class="item proxy" title="Use System Proxy (need restart)"
+                 data-i18n-values="title:proxy_systemProxy_help" style="display: none;">
+                <div class="icon"></div>
+                <span data-i18n-content="proxy_systemProxy">System Proxy</span>
+            </div>
+            <div id="menuAddRule" class="item"
+                 title="Quickly add a new Switch Rule &#13;for the current website."
+                 data-i18n-values="title:popup_newRule_help">
+                <img src="images/filter-add.png"/><span data-i18n-content="popup_newRule">New Rule</span>
+            </div>
+            <div class="item" id="divDomain" title="Add a temporary rule for the current domain."
+                 data-i18n-values="title:popup_newTempRule_help">
+                <div class="icon"></div>
+                <span id="spanDomain"></span>
+            </div>
+            <div id="menuAddTempRule" class="item" title="The profile to be applied temporarily for the current domain."
+                 style="display:none;" data-i18n-values="title:popup_newTempRule2_help">
+                <select id="cmbTempProfileId"></select>
+            </div>
+
+            <div id="separatorOptions" class="separator"></div>
+            <div id="menuOptions" class="item">
+                <img src="images/options.png"/><span data-i18n-content="popup_options">Options</span>
+            </div>
+            <div id="menuAbout" class="item">
+                <img src="images/about.png"/><span data-i18n-content="popup_aboutSwitchy">About 小猪学术助手</span>
+            </div>
+        </div>
+
+        <div id="about">
+            <div class="close"><img src="images/close.png"/></div>
+            <div class="header">
+                <table>
+                    <tr>
+                        <td><img src="images/icon-128.png" width="70"/></td>
+                        <td>
+                            <table class="titleTable">
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="title">小猪学术助手</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="1" class="version" data-i18n-content="popup_version">version</td>
+                                    <td class="version"><span class="versionNumber">version number here</span></td>
+                                    <td style="width: 100px;text-align: right;">
+                                        <input id="switch-animate" type="checkbox" checked="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="body">
+                <div id="developer">
+                    <div class="name">
+                        <table>
+                            <!--tr>
+                                <td data-i18n-content="popup_developedBy">开发人员</td>
+                                <td>小猪</td>
+                            </tr-->
+                            <tr>
+                                <td data-i18n-content="popup_basedOn">学术搜索，技术资料搜索</td>
+                                <!--td>
+                                    <div id="directConnection" name="[Direct Connection]" class="item proxy" title="关闭助手" data-i18n-values="title:proxy_directConnection_help">
+                                        <div class="icon"></div>
+                                        <span data-i18n-content="proxy_directConnection">关闭助手</span>
+                                    </div>
+                                </td-->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <span>
+                    <img src="images/web.png" valign="middle"/>
+                    <a href="" id="openMainWebsite" data-i18n-content="popup_switchyWebPage">Google学术助手 主页</a>
+                </span>
+                <br/>
+                <!--img src="images/web.png" valign="middle"/>
+                <a href="" id="openPlusWebsite" data-i18n-content="popup_switchyPlusWebPage">小猪学术助手 主页</a><br/>
+                <span>
+                    <img src="images/web.png" valign="middle"/>
+                    <a href="" id="openSupportWebsite" data-i18n-content="popup_supportAndBugReports">技术支持 &amp; Bug 反馈</a>
+                </span>
+                <br/-->
+            </div>
+            <div class="footer">
+                <div style="float:right;"><button id="login">登录</button></div>
+                <div data-i18n-content="popup_copyright">Copyright &copy; 2015 小猪工具箱.<br/>Some rights reserved.</div>
+            </div>
+        </div>
+
+        <div id="addRule">
+
+            <div class="header title" data-i18n-content="popup_newRule">New Rule</div>
+            <div class="header light">
+                <table>
+                    <tr>
+                        <th data-i18n-content="options_ruleName">Rule Name</th>
+                        <td><input id="txtRuleName" type="text" value="Quick Rule"></td>
+                    </tr>
+                    <tr>
+                        <th><strong data-i18n-content="options_urlPattern">URL Pattern</strong></th>
+                        <td><input id="txtUrlPattern" type="text" class="ltr"></td>
+                    </tr>
+                    <tr class="note">
+                        <th></th>
+                        <td>
+                            <div class="invalid" data-i18n-content="popup_duplicateRules">* There is already a rule for this URL
+                                Pattern.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th data-i18n-content="options_patternType">Pattern Type</th>
+                        <td><select id="cmbPatternType">
+                                <option value="wildcard" data-i18n-content="options_patternTypeWildcard">Wildcard</option>
+                                <option value="regexp" data-i18n-content="options_patternTypeRegExp">RegExp</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <th data-i18n-content="options_proxyProfile">Proxy Profile</th>
+                        <td><select id="cmbProfileId"></select></td>
+                    </tr>
+                </table>
+            </div>
+            <table class="control">
+                <tr>
+                    <td width="100%"></td>
+                    <td>
+                        <button class="button bold" id="btnSave" data-i18n-content="popup_add">Add
+                        </button>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <button class="button" id="btnCancel" data-i18n-content="popup_cancel">Cancel
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+        </div>
+    </body>
+</html>

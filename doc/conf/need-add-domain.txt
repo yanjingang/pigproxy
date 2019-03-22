@@ -1,0 +1,6 @@
+
+hhvm官方文档
+http://docs.hhvm.com/manual/en/index.php
+
+hhvm支持的hack语言官网
+http://hacklang.org/

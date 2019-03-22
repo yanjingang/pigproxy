@@ -1,0 +1,53 @@
+使用国内跳板机做socks端口转发到美国主机上。
+
+最终采用这种翻墙方式，部署过程：
+    1.一台美国linux主机(47.88.9.68)，安装openssl即可
+    2.一台国内linux主机(115.29.47.99)，使用ssh端口转发功能，在国内linux主机上建立一个1080监听端口，并将此端口收到的所有数据转发给美国主机（socks代理）。
+           ssh -CfNg -D 115.29.47.99:1080 root@47.88.9.68
+    3.在任意机器使用Firefox+AutoProxy或Chrome+Proxy SwitchySharp，配置代理为第2步设置的国内主机IP 115.29.47.99＋1080端口
+    4.配置切换规则，并选择自动切换模式
+    5.随意畅游吧！
+
+注：
+1.使用国内跳板机的原因是出于商用的考虑，用户本机不需要执行指令，只需要安装扩展配置一下即可翻墙。（商用时，国内跳板机服务器ip和端口需要做好安全防护工作，可考虑用定期自动换ip和端口号的方式，付费用户通过登录后的接口得到最新的ip和端口号地址）
+2.如果只是自已用，国内Linux主机可用自己的电脑代替。
+3.如果自己的电脑是windows系统没有ssh命令时，可以用Tunnelier代替ssh命令进行端口转发。
+done.
+
+
+chrome应用市场：（仅能使用连接安装，屏蔽了应用市场搜索，因为要用自己服务器的流量...）
+https://chrome.google.com/webstore/detail/enhonobfbhffceeljombdpgeehmaphek
+
+
+360se：
+    ID：kjabgjndiaejgfaacpenfaokeielaffo
+
+360ee:
+    ID：cngfmpmfciohijghnlcnpdjninpdlddi
+
+
+
+todo:
+服务器配置改为从服务端获取  ongoing
+    http://www.pigtools.cn/xueshu/login.php?uname=yanjingang&psd=123456&cid=884ebb3d-7b9d-06c4-875a-c071c79e&eid=bcnjicijpdegffgldjbnhbnpifinibce&ver=2.1.1&cit=1454574556&url=chrome://extensions/
+增加用户注册登录机制
+增加用户收费机制，免费用户只能使用试用低带宽服务器1小时，付费用户返回不同的代理配置
+
+
+
+v2.1.3	2016.2.4
+-------------------
+增加安装、使用统计  done
+关闭助手时自动使用系统代理配置访问
+
+
+v2.1.1	2016.1.27
+-------------------
+增加手动关闭按钮
+
+
+
+
+
+
+

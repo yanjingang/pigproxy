@@ -1,0 +1,23 @@
+{
+   "name": "小猪学术助手",
+   "version": "2.1.5",
+   "default_locale": "en",
+   "description": "仅供使用google搜索技术或学术资料使用！",
+   "background": {
+      "page": "background.html"
+   },
+   "manifest_version": 2,
+   "minimum_chrome_version": "18.0.0",
+   "browser_action": {
+      "default_icon": "images/icon-blue.png",
+      "default_popup": "popup.html",
+      "default_title": "en"
+   },
+   "homepage_url": "https://chrome.google.com/webstore/detail/enhonobfbhffceeljombdpgeehmaphek",
+   "icons": {
+      "128": "images/icon-128.png",
+      "16": "images/icon.png"
+   },
+   "permissions": [ "proxy", "tabs", "\u003Call_urls\u003E", "http://*/*", "https://*/*", "ftp://*/*" ],
+   "update_url": "http://clients2.google.com/service/update2/crx"
+}
