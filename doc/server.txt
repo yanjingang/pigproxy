@@ -357,6 +357,16 @@
             }
          在网络-自动代理中配置pac文件的url即可“http://115.29.47.99/vpn.pac”
       或linux下通过proxychains实现socks5系统代理：http://www.harker.cn/archives/proxychains.html
+            git clone https://github.com/rofl0r/proxychains-ng
+            cd proxychains-ng
+            ./configure --prefix=/usr --sysconfdir=/etc
+            make 
+            make install
+            make install-config
+            vim /etc/proxychains.conf
+                [ProxyList]
+                socks5  127.0.0.1 1080
+
     4.配置切换规则，并选择自动切换模式
     5.随意畅游吧！
 
