@@ -347,7 +347,8 @@
                 var lastPos;
                 do {
                     if (autoproxy_host.hasOwnProperty(host)) {
-                return 'PROXY 115.29.47.99:1080';
+                        //return 'PROXY 115.29.47.99:1080';
+                        return '\x50\x52\x4f\x58\x59 \x31\x31\x35\x2e\x32\x39\x2e\x34\x37\x2e\x39\x39\x3a\x31\x30\x38\x30';  # hex(ord(i))
                     }
                     lastPos = host.indexOf('.') + 1;
                     host = host.slice(lastPos);
